@@ -1,15 +1,13 @@
 [Unit]
-Description=Small description of the service
+Description=SUuperBin: 
 After=network.target
 
 [Service]
 Type=simple
 User=__APP__
 Group=__APP__
-WorkingDirectory=__INSTALL_DIR__/
-ExecStart=__INSTALL_DIR__/script
-StandardOutput=append:/var/log/__APP__/__APP__.log
-StandardError=inherit
+WorkingDirectory=__INSTALL_DIR__/live/
+ExecStart=__INSTALL_DIR__/superbin
 
 ### Depending on specificities of your service/app, you may need to tweak these
 ### .. but this should be a good baseline
