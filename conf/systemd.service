@@ -1,12 +1,12 @@
 [Unit]
-Description=SUuperBin: 
+Description=SuperBin: 
 After=network.target
 
 [Service]
 Type=simple
 User=__APP__
 Group=__APP__
-WorkingDirectory=__INSTALL_DIR__/live/
+WorkingDirectory=__INSTALL_DIR__/
 ExecStart=__INSTALL_DIR__/app
 
 ### Depending on specificities of your service/app, you may need to tweak these
