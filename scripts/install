@@ -26,29 +26,16 @@ pushd $install_dir
 	ynh_hide_warnings ynh_exec_as_app CGO_ENABLED=0 go build -o $install_dir/
 popd
 
-pushd $install_dir/build/
-	ynh_hide_warnings ynh_exec_as_app CGO_ENABLED=0 go build -ldflags='-s -w' -o $install_dir/live/
-popd
-
-pushd $install_dir/build_ldap/
-	ynh_hide_warnings ynh_exec_as_app CGO_ENABLED=0 go build -ldflags='-s -w' -o $install_dir/live_ldap/
-popd
-
 ynh_go_remove
-ynh_safe_rm "$install_dir/build/"
-ynh_safe_rm "$install_dir/build_ldap/"
-ynh_safe_rm "$install_dir/.cache/"
-ynh_safe_rm "$install_dir/go/"
-ynh_safe_rm "$install_dir/.go-version"
 
-chmod +x "$install_dir/galenectl"
+chmod +x "$install_dir/"
 
 #=================================================
 # APP INITIAL CONFIGURATION
 #=================================================
-ynh_script_progression "Adding $app's configuration files..."
+#ynh_script_progression "Adding $app's configuration files..."
 
-ynh_config_add --template="some_config_file" --destination="$install_dir/some_config_file"
+#ynh_config_add --template="some_config_file" --destination="$install_dir/some_config_file"
 
 #=================================================
 # SYSTEM CONFIGURATION
